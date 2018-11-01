@@ -26,4 +26,5 @@ WORKDIR /src/
 RUN cmake .
 RUN make
 RUN dpkg-buildpackage
-CMD echo "Successfully built. Run 'docker run Fingerprinter lastfm-fpclient <file.mp3>'"
+RUN cp bin/lastfm-fpclient /usr/local/bin
+CMD echo "Successfully built. Run 'docker tag [image] fingerprinter' then 'docker run fingerprinter lastfm-fpclient <file.mp3>'"
